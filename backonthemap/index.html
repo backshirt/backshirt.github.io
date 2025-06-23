@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Map with Pins</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="../index.html" class="w3-bar-item w3-button"><b>back</b> shirt</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#projects" class="w3-bar-item w3-button">Products</a>
+      <a href="#about" class="w3-bar-item w3-button">Philosophy</a>
+    </div>
+  </div>
+</div>
+
+  <div id="map-container">
+    <br>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Map_of_USA_with_state_names.svg/1024px-Map_of_USA_with_state_names.svg.png" style="filter: grayscale(50%)" alt="Map of the US" id="map">
+    <!-- Pins will go here -->
+    <div class="pin" data-name="Raleigh, NC" data-desc="City of Oaks" data-image="images/ny.jpg" data-url="https://example.com/new-york" style="top: 57%; left: 80%;"></div>
+    <div class="pin" data-name="Oakland, CA" data-desc="Golden City" data-image="images/la.jpg" data-url="https://example.com/los-angeles" style="top: 40%; left: 3%;"></div>
+    <div class="pin" data-name="Eugene, OR" data-desc="Golden City" data-image="images/la.jpg" data-url="https://example.com/los-angeles" style="top: 40%; left: 3%;"></div>
+    <div class="pin" data-name="Austin, TX" data-desc="Golden City" data-image="images/la.jpg" data-url="https://example.com/los-angeles" style="top: 40%; left: 3%;"></div>
+
+  </div>
+
+  <div id="details">
+    <h2 id="location-name">Click a pin to see details</h2>
+    <img id="location-image" src="" alt="" style="display: none;">
+    <p id="location-desc"></p>
+    <a id="location-link" href="#" target="_blank" style="display: none;">Learn more</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
