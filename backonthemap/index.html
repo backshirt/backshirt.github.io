@@ -9,42 +9,42 @@
   <meta property="og:description" content="See where Back Shirt has been spotted across the US.">
   <meta property="og:url" content="https://www.wearbackshirt.com/backonthemap/">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="styles.css">
-
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Navbar (sit on top) -->
+<!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+  <div class="w3-bar w3-wide w3-padding" style="background: #0a0a0a; border-bottom: 1px solid #1a1a1a;">
     <a href="../index.html" class="w3-bar-item w3-button"><b>back</b> shirt</a>
-    <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="#projects" class="w3-bar-item w3-button">Products</a>
-      <a href="#about" class="w3-bar-item w3-button">Philosophy</a>
+      <a href="../index.html#projects" class="w3-bar-item w3-button">Products</a>
+      <a href="../index.html#about" class="w3-bar-item w3-button">Philosophy</a>
     </div>
   </div>
 </div>
 
-  <div id="map-container">
-    <br>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Map_of_USA_with_state_names.svg/1024px-Map_of_USA_with_state_names.svg.png" style="filter: grayscale(50%)" alt="Map of the US" id="map">
-    <!-- Pins will go here -->
-    <div class="pin" data-name="Raleigh, NC" data-desc="City of Oaks" data-image="images/ny.jpg" data-url="https://example.com/new-york" style="top: 57%; left: 80%;"></div>
-    <div class="pin" data-name="Oakland, CA" data-desc="Town" data-image="images/la.jpg" data-url="https://example.com/los-angeles" style="top: 41%; left: 8%;"></div>
-    <div class="pin" data-name="Eugene, OR" data-desc="Track Town USA" data-image="images/la.jpg" data-url="https://example.com/los-angeles" style="top: 30%; left: 9%;"></div>
-    <div class="pin" data-name="Austin, TX" data-desc="Keep Austin Weird" data-image="images/la.jpg" data-url="https://example.com/los-angeles" style="top: 68%; left: 55%;"></div>
+<a href="../index.html" class="back-link">&larr; Back</a>
 
-  </div>
+<p class="page-title">#backonthemap</p>
 
-  <div id="details">
-    <h2 id="location-name">Click a pin to see details</h2>
-    <img id="location-image" src="" alt="" style="display: none;">
-    <p id="location-desc"></p>
-    <a id="location-link" href="#" target="_blank" style="display: none;">Learn more</a>
-  </div>
+<div id="map-container">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Map_of_USA_with_state_names.svg/1024px-Map_of_USA_with_state_names.svg.png" alt="Map of the US" id="map">
+  <div class="pin" data-name="Raleigh, NC" data-desc="City of Oaks" data-image="images/ny.jpg" style="top: 57%; left: 80%;"></div>
+  <div class="pin" data-name="Oakland, CA" data-desc="Town" data-image="images/la.jpg" style="top: 41%; left: 8%;"></div>
+  <div class="pin" data-name="Eugene, OR" data-desc="Track Town USA" data-image="images/la.jpg" style="top: 30%; left: 9%;"></div>
+  <div class="pin" data-name="Austin, TX" data-desc="Keep Austin Weird" data-image="images/la.jpg" style="top: 68%; left: 55%;"></div>
+</div>
 
-  <script src="script.js"></script>
+<div id="details">
+  <h2 id="location-name">Click a pin to see details</h2>
+  <img id="location-image" src="" alt="" style="display: none;">
+  <p id="location-desc"></p>
+  <a id="location-link" href="#" target="_blank" style="display: none;">Learn more</a>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

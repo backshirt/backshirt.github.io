@@ -1,42 +1,90 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+
+a {
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 80px;
+  margin-left: 24px;
+  margin-bottom: 24px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.back-link:hover { color: #f0f0f0; }
+
+.page-title {
+  text-align: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #555;
+  margin-bottom: 40px;
 }
 
 #map-container {
   position: relative;
   width: 100%;
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 #map {
   width: 100%;
   height: auto;
+  filter: grayscale(100%) brightness(0.6);
 }
 
 .pin {
   position: absolute;
-  width: 15px;
-  height: 15px;
-  background: red;
+  width: 12px;
+  height: 12px;
+  background: #f0f0f0;
   border-radius: 50%;
   cursor: pointer;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 8px rgba(240, 240, 240, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pin:hover {
-  background: darkred;
+  background: #fff;
+  transform: translate(-50%, -50%) scale(1.4);
+  box-shadow: 0 0 16px rgba(240, 240, 240, 0.6);
 }
 
 #details {
-  padding: 1rem;
-  background: #f9f9f9;
+  padding: 40px 16px;
+  background: #111;
   text-align: center;
+  min-height: 120px;
+}
+
+#location-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 0 8px;
+}
+
+#location-desc {
+  color: #888;
+  font-size: 0.85rem;
+  font-weight: 300;
 }
 
 #location-image {
@@ -45,7 +93,15 @@ body {
   margin: 1rem 0;
 }
 
-a {
-  color: blue;
-  text-decoration: underline;
+#location-link {
+  color: #f0f0f0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid #333;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+#location-link:hover {
+  border-color: #f0f0f0;
 }
