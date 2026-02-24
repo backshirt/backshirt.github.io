@@ -87,10 +87,16 @@ a {
   font-weight: 300;
 }
 
-#location-image {
-  max-width: 100%;
-  height: auto;
-  margin: 1rem 0;
+.location-img {
+  width: 100%;
+  max-width: 300px;
+  padding-bottom: 300px;
+  margin: 1rem auto;
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none;
 }
 
 #location-link {

@@ -20,9 +20,10 @@ pins.forEach(pin => {
     nameElement.textContent = name;
     descElement.textContent = desc;
     if (image) {
-      imageElement.src = image;
+      imageElement.style.backgroundImage = 'url(' + image + ')';
       imageElement.style.display = 'block';
     } else {
+      imageElement.style.backgroundImage = '';
       imageElement.style.display = 'none';
     }
     if (url) {
