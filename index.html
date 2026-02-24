@@ -4,6 +4,12 @@
 <title>Back Shirt</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Back Shirt — clothing that celebrates the return to everyday adventures. #getbackoutthere">
+<meta property="og:title" content="Back Shirt">
+<meta property="og:description" content="Clothing that celebrates the return to everyday adventures. Get back out there.">
+<meta property="og:image" content="https://images2.imgbox.com/69/01/ED4tHNv0_o.jpeg">
+<meta property="og:url" content="https://www.wearbackshirt.com">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
@@ -12,7 +18,27 @@
       font-family: "Montserrat", sans-serif;
     }
     #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; max-width: 600px; }
-
+    .product-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .product-card img {
+      transition: transform 0.3s ease;
+      border-radius: 4px;
+    }
+    .product-card:hover img {
+      transform: scale(1.03);
+    }
+    .product-label {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
     </style>
 </head>
 <body>
@@ -49,22 +75,22 @@
   </div>
 
   <div class="w3-row-padding">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <a href="back-out-there.html"><img src="https://images2.imgbox.com/34/48/eCbtgbPm_o.png" style="width:100%"></a>
-        <p>Back Out There<br><b>$49.99</b></p>
+    <div class="w3-col l3 s12">
+      <div class="w3-container product-card">
+        <a href="back-out-there.html"><img src="https://images2.imgbox.com/34/48/eCbtgbPm_o.png" style="width:100%" loading="lazy"></a>
+        <p class="product-label">Back Out There<br><b>$49.99</b></p>
       </div>
     </div>
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <a href="back-home.html"><img src="IMG_3207.png" style="width:100%"></a>
-        <p>Back Home<br><b>$29.99</b></p>
+    <div class="w3-col l3 s12">
+      <div class="w3-container product-card">
+        <a href="back-home.html"><img src="IMG_3207.png" style="width:100%" loading="lazy"></a>
+        <p class="product-label">Back Home<br><b>$29.99</b></p>
       </div>
     </div>
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <a href="back-home-shorts.html"><img src="IMG_4626_backhomeshorts_website.PNG" style="width:100%"></a>
-        <p>Back Home Shorts<br><b>$44.99</b></p>
+    <div class="w3-col l3 s12">
+      <div class="w3-container product-card">
+        <a href="back-home-shorts.html"><img src="IMG_4626_backhomeshorts_website.PNG" style="width:100%" loading="lazy"></a>
+        <p class="product-label">Back Home Shorts<br><b>$44.99</b></p>
       </div>
     </div>
   </div>
@@ -86,37 +112,6 @@
   </div>
 
 
-   <!-- people images with text below - staff section -->
-  <div class="w3-row-padding w3-grayscale w3-hide">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://www.w3schools.com/w3images/team2.jpg" alt="John" style="width:100%">
-      <h3>John Doe</h3>
-      <p class="w3-opacity">CEO & Founder</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://www.w3schools.com/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <h3>Jane Doe</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://www.w3schools.com/w3images/team3.jpg" alt="Mike" style="width:100%">
-      <h3>Mike Ross</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://www.w3schools.com/w3images/team4.jpg" alt="Dan" style="width:100%">
-      <h3>Dan Star</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-  </div>
 
 
 
@@ -181,45 +176,21 @@
 <!-- end instagram -->
 
 
-    <div class="w3-row-padding w3-grayscale">
-        <div class="w3-col l4 m3 s3 w3-margin-bottom">
-            <div class="w3-display-container w3-hide">
-                <img src="https://www.w3schools.com/w3images/team2.jpg" alt="John" style="width:100%">
-                <h3>John Doe</h3>
-                <p class="w3-opacity">CEO & Founder</p>
-                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-            </div>
-        </div>
-        <div class="w3-col l4 m6 s6 w3-margin-bottom w3-hide">
-          <img src="qrcode.png" alt="Jane" style="width:100%">
-          <a href="https://www.paypal.com/paypalme/evanmann92" target="_blank"><p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p></a>
-          <p>Shopify coming soon</p>
-        </div>
-        <div class="w3-display-container w3-hide">
-            <div class="w3-col l4 m3 s3 w3-margin-bottom">
-                <img src="https://www.w3schools.com/w3images/team3.jpg" alt="Mike" style="width:100%">
-                <h3>Mike Ross</h3>
-                <p class="w3-opacity">Architect</p>
-                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-              </div>
-        </div>
-      </div>
   </div>
   
-<!-- Image of location/map -->
-<div class="w3-container w3-hide">
-  <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image" style="width:100%">
-</div>
-
 <!-- End page content -->
 </div>
 
 
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16 ">
-  <p>Copyright Back Shirt 2025<br> Website powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+<footer class="w3-center w3-black w3-padding-32">
+  <div class="w3-padding-16">
+    <a href="#projects" class="w3-button w3-transparent w3-text-white w3-hover-text-grey">Products</a>
+    <a href="#about" class="w3-button w3-transparent w3-text-white w3-hover-text-grey">Philosophy</a>
+    <a href="#contact" class="w3-button w3-transparent w3-text-white w3-hover-text-grey">Subscribe</a>
+    <a href="https://www.instagram.com/wearbackshirt/" target="_blank" class="w3-button w3-transparent w3-text-white w3-hover-text-grey">Instagram</a>
+  </div>
+  <p class="w3-small w3-opacity">Copyright Back Shirt 2025</p>
 </footer>
 
 </body>
