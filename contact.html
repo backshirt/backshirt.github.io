@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact — Back Shirt</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Get in touch with Back Shirt — questions, wholesale, collabs, or anything else.">
+  <meta property="og:title" content="Contact — Back Shirt">
+  <meta property="og:description" content="Get in touch with Back Shirt.">
+  <meta property="og:url" content="https://www.wearbackshirt.com/contact.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #f0f0f0;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+    }
+    a { color: #f0f0f0; }
+    .contact-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 120px 16px 80px;
+    }
+    .contact-headline {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+    .contact-sub {
+      color: #666;
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+    .contact-form label {
+      display: block;
+      color: #666;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: #161616;
+      color: #f0f0f0;
+      border: 1px solid #2a2a2a;
+      padding: 12px 14px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      border-radius: 0;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: #f0f0f0;
+      outline: none;
+    }
+    .contact-form textarea { resize: vertical; }
+    .contact-btn {
+      background: #f0f0f0;
+      color: #0a0a0a;
+      border: none;
+      padding: 14px 32px;
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .contact-btn:hover { opacity: 0.85; }
+    .contact-btn:disabled { opacity: 0.4; cursor: default; }
+    #formResult {
+      margin-top: 24px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      font-weight: 300;
+      border-left: 2px solid #2a2a2a;
+      background: #111;
+    }
+    #formResult.ok { border-left-color: #4caf50; color: #cfe9d0; }
+    #formResult.err { border-left-color: #e57373; color: #f0d2d2; }
+    .contact-fallback {
+      margin-top: 40px;
+      color: #555;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+    .contact-fallback a { color: #888; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-wide w3-padding" style="background: #0a0a0a; border-bottom: 1px solid #1a1a1a;">
+    <a href="index.html" class="w3-bar-item w3-button"><b>back</b> shirt</a>
+    <div class="w3-right w3-hide-small">
+      <a href="index.html#projects" class="w3-bar-item w3-button">Products</a>
+      <a href="index.html#about" class="w3-bar-item w3-button">Philosophy</a>
+    </div>
+  </div>
+</div>
+
+<div class="contact-wrap">
+  <h1 class="contact-headline">Get in touch.</h1>
+  <p class="contact-sub">Questions, wholesale, collabs, or anything else — send a note and we'll get back to you.</p>
+
+  <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+    <!-- Web3Forms access key (public by design) — shared with evanlmann.com; same inbox. -->
+    <input type="hidden" name="access_key" value="d845e49b-6041-4222-8c7f-64d746902fdc">
+    <!-- Source tagging so wearbackshirt submissions are distinguishable in the shared inbox. -->
+    <input type="hidden" name="subject" value="New contact from wearbackshirt.com">
+    <input type="hidden" name="from_name" value="wearbackshirt.com contact form">
+    <input type="hidden" name="site" value="wearbackshirt.com">
+
+    <!-- Honeypot: hidden field bots tend to fill in -->
+    <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
+    <label for="cf-name">Name</label>
+    <input id="cf-name" type="text" name="name" required>
+
+    <label for="cf-email">Email</label>
+    <input id="cf-email" type="email" name="email" required>
+
+    <label for="cf-topic">What's this about?</label>
+    <select id="cf-topic" name="topic" required>
+      <option value="" disabled selected>Choose a topic…</option>
+      <option value="Order or return">Order or return</option>
+      <option value="Wholesale">Wholesale</option>
+      <option value="Press or collab">Press or collab</option>
+      <option value="Something else">Something else</option>
+    </select>
+
+    <label for="cf-message">Message</label>
+    <textarea id="cf-message" name="message" rows="5" required></textarea>
+
+    <!-- hCaptcha (uses Web3Forms' built-in keys via their client script) -->
+    <div class="h-captcha w3-margin-bottom" data-captcha="true"></div>
+
+    <button type="submit" class="contact-btn">Send</button>
+  </form>
+
+  <!-- Inline result message -->
+  <div id="formResult" class="w3-hide"></div>
+
+  <!-- Fallback contact -->
+  <p class="contact-fallback">
+    Prefer email? <a href="mailto:hello@wearbackshirt.com">hello@wearbackshirt.com</a>
+  </p>
+</div>
+
+<!-- Web3Forms client script: enables the hCaptcha widget above -->
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+<!-- Inline AJAX submit: shows success/error without a page reload.
+     Degrades to a normal POST (Web3Forms' own success page) if JS is disabled. -->
+<script>
+  const form = document.getElementById('contactForm');
+  const result = document.getElementById('formResult');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    submitBtn.disabled = true;
+    result.className = '';
+    result.textContent = 'Sending…';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    })
+      .then(async (response) => {
+        const json = await response.json();
+        if (response.ok && json.success) {
+          result.className = 'ok';
+          result.textContent = "Thanks — your message is on its way. We'll be in touch soon.";
+          form.reset();
+        } else {
+          result.className = 'err';
+          result.textContent = json.message || 'Something went wrong. Please email hello@wearbackshirt.com.';
+        }
+      })
+      .catch(() => {
+        result.className = 'err';
+        result.textContent = 'Network error. Please email hello@wearbackshirt.com.';
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+      });
+  });
+</script>
+
+</body>
+</html>
