@@ -91,13 +91,6 @@
     }
     #formResult.ok { border-left-color: #4caf50; color: #cfe9d0; }
     #formResult.err { border-left-color: #e57373; color: #f0d2d2; }
-    .contact-fallback {
-      margin-top: 40px;
-      color: #555;
-      font-size: 0.8rem;
-      font-weight: 300;
-    }
-    .contact-fallback a { color: #888; }
   </style>
 </head>
 <body>
@@ -155,11 +148,6 @@
 
   <!-- Inline result message -->
   <div id="formResult" class="w3-hide"></div>
-
-  <!-- Fallback contact -->
-  <p class="contact-fallback">
-    Prefer email? <a href="mailto:hello@wearbackshirt.com">hello@wearbackshirt.com</a>
-  </p>
 </div>
 
 <!-- Web3Forms client script: enables the hCaptcha widget above -->
@@ -193,12 +181,12 @@
           form.reset();
         } else {
           result.className = 'err';
-          result.textContent = json.message || 'Something went wrong. Please email hello@wearbackshirt.com.';
+          result.textContent = json.message || 'Something went wrong. Please try again.';
         }
       })
       .catch(() => {
         result.className = 'err';
-        result.textContent = 'Network error. Please email hello@wearbackshirt.com.';
+        result.textContent = 'Network error. Please try again.';
       })
       .finally(() => {
         submitBtn.disabled = false;
