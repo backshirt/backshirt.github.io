@@ -155,6 +155,120 @@
       line-height: 1.8;
       font-weight: 300;
     }
+
+    /* In Action (AI scenes + quotes) */
+    .section-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 300;
+      margin: 0 0 8px;
+    }
+    .section-sub {
+      color: #666;
+      font-size: 0.85rem;
+      font-weight: 300;
+      margin: 0 0 48px;
+    }
+    #action-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .action-col { width: calc((100% - 32px) / 3); }
+    @media (max-width: 600px) {
+      .action-col { width: 100%; }
+    }
+    .action-card {
+      display: block;
+      width: 100%;
+      background: #161616;
+      border: 1px solid #161616;
+      color: #f0f0f0;
+      font: inherit;
+      text-align: left;
+      padding: 0;
+      margin-bottom: 16px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .action-card:hover, .action-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: #2a2a2a;
+      outline: none;
+    }
+    .action-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .action-title {
+      padding: 16px 16px 4px;
+      font-size: 1rem;
+      font-weight: 300;
+      color: #f0f0f0;
+    }
+    .action-by {
+      padding: 0 16px 16px;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+    }
+    .ai-tag {
+      display: inline-block;
+      border: 1px solid #333;
+      color: #777;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      margin-left: 6px;
+    }
+    /* Modal */
+    #action-modal {
+      background: #111;
+      color: #f0f0f0;
+      border: 1px solid #222;
+      padding: 0;
+      /* square image + ~200px of text must fit in the window */
+      width: min(92vw, 560px, calc(92vh - 200px));
+      min-width: min(92vw, 320px);
+      max-height: 92vh;
+      overflow: auto;
+    }
+    #action-modal::backdrop { background: rgba(0, 0, 0, 0.85); }
+    #action-modal img { display: block; width: 100%; height: auto; }
+    .modal-body { padding: 24px; }
+    .modal-quote {
+      margin: 0 0 16px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .modal-btn {
+      background: transparent;
+      color: #888;
+      border: 1px solid #2a2a2a;
+      font: inherit;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 8px 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .modal-btn:hover { color: #f0f0f0; border-color: #555; }
+    .modal-shop { margin-left: auto; color: #f0f0f0; border-color: #f0f0f0; }
 </style>
 </head>
 <body>
@@ -166,6 +280,7 @@
     <div class="w3-right w3-hide-small">
       <a href="#projects" class="w3-bar-item w3-button">Products</a>
       <a href="#about" class="w3-bar-item w3-button">Philosophy</a>
+      <a href="#in-action" class="w3-bar-item w3-button">In Action</a>
     </div>
   </div>
 </div>
@@ -242,6 +357,30 @@
   </div>
 </section>
 
+<!-- Back in action: one card per activity; each opens its AI scenes + quotes. Add activities/scenes in ACTION_ACTIVITIES below. -->
+<section class="section-pad w3-center" id="in-action">
+  <div class="w3-content" style="max-width:900px;">
+    <h2 class="section-title">Back in action</h2>
+    <p class="section-sub">These people don't exist. The shirt does.</p>
+    <div id="action-grid"></div>
+  </div>
+</section>
+
+<dialog id="action-modal" aria-labelledby="action-modal-title">
+  <img id="action-modal-img" src="" alt="">
+  <div class="modal-body">
+    <div class="action-by" style="padding:0 0 12px;"><span id="action-modal-title"></span> &middot; <span id="action-modal-count"></span></div>
+    <p class="modal-quote" id="action-modal-quote"></p>
+    <div class="action-by" style="padding:0;"><span id="action-modal-by"></span><span class="ai-tag">AI</span></div>
+    <div class="modal-actions">
+      <button type="button" class="modal-btn" id="action-prev" aria-label="Previous">&larr;</button>
+      <button type="button" class="modal-btn" id="action-next" aria-label="Next">&rarr;</button>
+      <button type="button" class="modal-btn" id="action-close">Close</button>
+      <a class="modal-btn modal-shop" id="action-shop" href="back-out-there.html">Get the shirt</a>
+    </div>
+  </div>
+</dialog>
+
 <!-- Instagram profile embed (hidden — IG also linked in footer) -->
 <section class="section-pad w3-center w3-hide" id="contact">
   <div class="w3-content" style="max-width:900px;">
@@ -266,6 +405,7 @@
   <div class="w3-padding-16">
     <a href="#projects" class="w3-button w3-transparent w3-hover-text-grey">Products</a>
     <a href="#about" class="w3-button w3-transparent w3-hover-text-grey">Philosophy</a>
+    <a href="#in-action" class="w3-button w3-transparent w3-hover-text-grey">In Action</a>
     <a href="contact.html" class="w3-button w3-transparent w3-hover-text-grey">Contact</a>
     <a href="https://www.instagram.com/wearbackshirt/" target="_blank" class="w3-button w3-transparent w3-hover-text-grey">Instagram</a>
     <a href="backonthemap/" class="w3-button w3-transparent w3-hover-text-grey">#backonthemap</a>
@@ -273,6 +413,155 @@
   <p class="w3-small" style="color: #666;">Designed in Raleigh, NC</p>
   <p class="w3-small" style="color: #444;">Copyright Back Shirt 2026</p>
 </footer>
+
+<script>
+  // One entry per activity card. The card uses the first scene's image as its cover.
+  // Quotes are Evan's on purpose, typos included. Keep them verbatim.
+  var ACTION_ACTIVITIES = [
+    {
+      id: 'mowing-the-lawn',
+      title: 'Mowing the lawn',
+      shop: 'back-out-there.html',
+      scenes: [
+        {
+          id: 'mow-lawn-00009',
+          img: 'in-action/mow-lawn-00009.jpg',
+          alt: 'AI-generated man in a black Back Out There tee pushing a mower across an already perfectly striped lawn',
+          quote: 'I enjoy mowing the lawn because when I mow it the grass is shorter and less tall than before it was. In my Back Shirt I can mow my lawn enjoying the nice day outside on the grass.'
+        },
+        {
+          id: 'mow-lawn-00008',
+          img: 'in-action/mow-lawn-00008.jpg',
+          alt: 'AI-generated man in a black Back Out There tee and shorts leaning into a lawn mower',
+          quote: 'In my Back Shirt I nlike mowing my lawn because its makes it short and nice out there on the grass.'
+        },
+        {
+          id: 'mow-lawn-00007',
+          img: 'in-action/mow-lawn-00007.jpg',
+          alt: 'AI-generated man in a black Back Out There tee smiling at the camera behind a lawn mower',
+          quote: 'I am mowing the Lawn on my Back Shirt outside to make the grass shoter.'
+        }
+      ]
+    },
+    {
+      id: 'biking',
+      title: 'Biking',
+      shop: 'back-out-there.html',
+      scenes: [
+        {
+          id: 'road-cycling-00006',
+          img: 'in-action/road-cycling-00006.jpg',
+          alt: 'AI-generated cyclist in a black Back Out There tee standing over a road bike on an empty coastal road, staring into the camera',
+          quote: 'In my Back Shirt and on my bike, I ride up the road having a fun time.'
+        }
+      ]
+    },
+    {
+      id: 'hanging-out-on-the-porch',
+      title: 'Hanging out on the porch',
+      shop: 'back-home.html',
+      scenes: [
+        {
+          id: 'home-porch-00005',
+          img: 'in-action/home-porch-00005.jpg',
+          alt: 'AI-generated woman in a white Back Home tee kneeling on a front porch, smiling at the camera',
+          quote: 'When hanging out on the porch, I can wear my Back Home shirt and enjoy the weather outside and the air to breathe. I like it!'
+        }
+      ]
+    },
+    {
+      id: 'basketball',
+      title: 'Basketball',
+      shop: 'back-out-there.html',
+      scenes: [
+        {
+          id: 'basketball-00001',
+          img: 'in-action/basketball-00001.jpg',
+          alt: 'AI-generated man in a black Back Out There tee floating mid-air on an outdoor court, palming a basketball',
+          quote: "It's a fun sport I can play while my Back Shirt is on ."
+        }
+      ]
+    }
+  ];
+
+  (function () {
+    var grid = document.getElementById('action-grid');
+    var modal = document.getElementById('action-modal');
+    var activity = null;
+    var current = 0;
+
+    ACTION_ACTIVITIES.forEach(function (act) {
+      var col = document.createElement('div');
+      col.className = 'action-col';
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'action-card';
+      var img = document.createElement('img');
+      img.src = act.scenes[0].img;
+      img.alt = act.scenes[0].alt;
+      img.loading = 'lazy';
+      var title = document.createElement('div');
+      title.className = 'action-title';
+      title.textContent = act.title;
+      var count = document.createElement('div');
+      count.className = 'action-by';
+      count.textContent = act.scenes.length + (act.scenes.length === 1 ? ' AI customer' : ' AI customers');
+      card.append(img, title, count);
+      card.addEventListener('click', function () { open(act, 0); });
+      col.appendChild(card);
+      grid.appendChild(col);
+    });
+
+    function show(i) {
+      var n = activity.scenes.length;
+      current = (i + n) % n;
+      var scene = activity.scenes[current];
+      document.getElementById('action-modal-img').src = scene.img;
+      document.getElementById('action-modal-img').alt = scene.alt;
+      document.getElementById('action-modal-title').textContent = activity.title;
+      document.getElementById('action-modal-count').textContent = (current + 1) + ' / ' + n;
+      var quoteEl = document.getElementById('action-modal-quote');
+      quoteEl.textContent = scene.quote ? '“' + scene.quote + '”' : '';
+      quoteEl.hidden = !scene.quote;
+      document.getElementById('action-modal-by').textContent = scene.by || 'AI customer';
+      document.getElementById('action-shop').href = activity.shop;
+      document.getElementById('action-prev').hidden = n === 1;
+      document.getElementById('action-next').hidden = n === 1;
+      history.replaceState(null, '', '#' + scene.id);
+    }
+
+    function open(act, i) {
+      activity = act;
+      show(i);
+      if (!modal.open) modal.showModal();
+    }
+
+    modal.addEventListener('close', function () {
+      history.replaceState(null, '', location.pathname + location.search + '#in-action');
+    });
+    // Click on the backdrop (outside the dialog box) closes it
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.close();
+    });
+    modal.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+    document.getElementById('action-prev').addEventListener('click', function () { show(current - 1); });
+    document.getElementById('action-next').addEventListener('click', function () { show(current + 1); });
+    document.getElementById('action-close').addEventListener('click', function () { modal.close(); });
+
+    // Shareable links: #mowing-the-lawn opens the activity, #mow-lawn-00009 opens that scene
+    ACTION_ACTIVITIES.forEach(function (act) {
+      var i = act.scenes.findIndex(function (s) { return '#' + s.id === location.hash; });
+      if ('#' + act.id === location.hash) i = 0;
+      if (i !== -1 && !modal.open) {
+        document.getElementById('in-action').scrollIntoView();
+        open(act, i);
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
